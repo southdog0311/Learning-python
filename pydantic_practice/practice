@@ -1,0 +1,24 @@
+from dataclasses import dataclass, field # 記得要 import field
+import datetime
+ 
+@dataclass
+class Employee:
+    """Class that contains basic information about an employee."""
+    name: str
+    job: str
+    salary: int = 0
+    skillset: list[str] = field(default_factory=list)
+ 
+hao = Employee("Hao Huang", "Data Analyst", 22_000) 
+print(hao)
+ 
+hao.skillset.append("Python")
+hao.skillset.append("C++")
+print(hao)
+ 
+## 執行結果：
+## $ python3 test.py
+## Employee(name='Hao Huang', job='Data Analyst', 
+##          salary=22000, skillset=[])
+## Employee(name='Hao Huang', job='Data Analyst', 
+##          salary=22000, skillset=['Python', 'C++'])
